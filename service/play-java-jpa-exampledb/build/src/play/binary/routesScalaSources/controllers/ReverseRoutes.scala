@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/macadmin/Documents/major_project/2020_Know_Your_Leader/service/play-java-jpa-exampledb/conf/routes
-// @DATE:Tue Mar 10 14:43:53 IST 2020
+// @DATE:Wed Mar 11 10:59:56 IST 2020
 
 import play.api.mvc.Call
 
@@ -16,6 +16,12 @@ package controllers {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:24
+    def addComment(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "comment")
+    }
   
     // @LINE:23
     def addRating(): Call = {
@@ -115,14 +121,14 @@ package controllers {
   
   }
 
-  // @LINE:30
+  // @LINE:31
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:30
+    // @LINE:31
     def at(file:String): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))

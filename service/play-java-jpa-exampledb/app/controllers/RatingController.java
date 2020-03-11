@@ -42,5 +42,14 @@ public class RatingController extends Controller {
         }, ec.current());
     }
 
+    public CompletionStage<Result> addComment() {
+
+        Rating rating= Json.fromJson(request().body().asJson(),Rating.class);
+
+        return ratingRepository.comment(rating).thenApplyAsync(p -> {
+            return ok();
+        }, ec.current());
+    }
+
 }
 

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/macadmin/Documents/major_project/2020_Know_Your_Leader/service/play-java-jpa-exampledb/conf/routes
-// @DATE:Tue Mar 10 14:43:53 IST 2020
+// @DATE:Wed Mar 11 10:59:56 IST 2020
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -17,6 +17,16 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:24
+    def addComment: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RatingController.addComment",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "comment"})
+        }
+      """
+    )
   
     // @LINE:23
     def addRating: JavaScriptReverseRoute = JavaScriptReverseRoute(
@@ -170,7 +180,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:30
+  // @LINE:31
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -178,7 +188,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:30
+    // @LINE:31
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """

@@ -13,6 +13,8 @@ public interface RatingRepository {
 
     CompletionStage<Rating> add(Rating rating);
 
+    CompletionStage<Rating> comment(Rating rating);
+
 }
 
 

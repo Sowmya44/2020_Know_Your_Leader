@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/macadmin/Documents/major_project/2020_Know_Your_Leader/service/play-java-jpa-exampledb/conf/routes
-// @DATE:Tue Mar 10 14:43:53 IST 2020
+// @DATE:Wed Mar 11 10:59:56 IST 2020
 
 package router
 
@@ -19,7 +19,7 @@ class Routes(
   ActionController_3: controllers.ActionController,
   // @LINE:23
   RatingController_1: controllers.RatingController,
-  // @LINE:30
+  // @LINE:31
   Assets_0: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -32,7 +32,7 @@ class Routes(
     ActionController_3: controllers.ActionController,
     // @LINE:23
     RatingController_1: controllers.RatingController,
-    // @LINE:30
+    // @LINE:31
     Assets_0: controllers.Assets
   ) = this(errorHandler, PersonController_2, ActionController_3, RatingController_1, Assets_0, "/")
 
@@ -59,6 +59,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """actionsf/""" + "$" + """email<[^/]+>/""" + "$" + """filter<[^/]+>""", """controllers.ActionController.getActionsFilter(email:String, filter:String)"""),
     ("""DELETE""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """delaction""", """controllers.ActionController.deleteAction()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """rating""", """controllers.RatingController.addRating()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """comment""", """controllers.RatingController.addComment()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -301,11 +302,29 @@ class Routes(
     )
   )
 
-  // @LINE:30
-  private[this] lazy val controllers_Assets_at13_route = Route("GET",
+  // @LINE:24
+  private[this] lazy val controllers_RatingController_addComment13_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("comment")))
+  )
+  private[this] lazy val controllers_RatingController_addComment13_invoker = createInvoker(
+    RatingController_1.addComment(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.RatingController",
+      "addComment",
+      Nil,
+      "POST",
+      this.prefix + """comment""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:31
+  private[this] lazy val controllers_Assets_at14_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at13_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_at14_invoker = createInvoker(
     Assets_0.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -400,10 +419,16 @@ class Routes(
         controllers_RatingController_addRating12_invoker.call(RatingController_1.addRating())
       }
   
-    // @LINE:30
-    case controllers_Assets_at13_route(params@_) =>
+    // @LINE:24
+    case controllers_RatingController_addComment13_route(params@_) =>
+      call { 
+        controllers_RatingController_addComment13_invoker.call(RatingController_1.addComment())
+      }
+  
+    // @LINE:31
+    case controllers_Assets_at14_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at13_invoker.call(Assets_0.at(path, file))
+        controllers_Assets_at14_invoker.call(Assets_0.at(path, file))
       }
   }
 }

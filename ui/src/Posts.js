@@ -73,7 +73,43 @@ class Posts extends Component {
             .catch(() => console.log("can't access" + url + "response. "))
     }
 
-    
+    commentPost(actionid,comment) {
+        const posts = this.state.posts.map(post =>
+            (post.actionid !== actionid) ?
+                post :
+                {
+                    ...post,
+                    comment
+                } 
+        )
+        this.setState({ posts })
+        var body = {
+            actionid: actionid,
+            email: window.sessionStorage.getItem("username"),
+            comment: comment
+        }
+        console.log(body)
+        const url = "http://localhost:9000/comment";
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json');
+        headers.append('Accept', 'application/json');
+        headers.append('Access-Control-Allow-origin', url);
+        headers.append('Access-Control-Allow-Credentials', 'true');
+
+        headers.append('POST', 'GET');
+        fetch(url, {
+            headers: headers,
+            method: 'POST',
+            body: JSON.stringify(body)
+        })
+            .then(response => response.json())
+            .then(contents => {
+                console.log(contents);
+            })
+            .catch(() => console.log("can't access" + url + "response. "))
+    }
+
 
     handleFilterSubmit(event) {
         event.preventDefault();
@@ -121,13 +157,15 @@ class Posts extends Component {
 
     render() {
         const { ratePost } = this 
+        const { commentPost } = this 
         const { posts } = this.state
         return (
             <Container>
                 <Row>
                     <Col md={{ span: 3, offset: 1 }}>
                         <PostList posts={posts}
-                                  onRate={ratePost}/>
+                                  onRate={ratePost}
+                                  onComment={commentPost}/>
                     </Col>
                     <Col md={{ span: 3, offset: 3 }}>
                         <div>
@@ -156,5 +194,7 @@ class Posts extends Component {
         );
     }
 }
+
+export const getPosts = () => this.state.posts
 
 export default Posts;

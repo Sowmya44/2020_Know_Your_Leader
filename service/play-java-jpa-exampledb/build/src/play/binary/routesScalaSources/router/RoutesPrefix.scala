@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/macadmin/Documents/major_project/2020_Know_Your_Leader/service/play-java-jpa-exampledb/conf/routes
-// @DATE:Tue Mar 10 14:43:53 IST 2020
+// @DATE:Wed Mar 11 10:59:56 IST 2020
 
 
 package router {
