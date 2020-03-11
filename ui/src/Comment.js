@@ -7,7 +7,7 @@ import {
 } from 'react-bootstrap'
 
     function Comment(props){
-        
+          
         const handleCommentChange = event => {
             const { name, value } = event.target
           }
