@@ -35,7 +35,7 @@ const Post = ({ actionid, actionname, description, actionpath, email, actionrati
                         </Col>
                     </Form.Group>        
                 </Form>
-                <Comment comment={comment} onComment={onComment}/>
+                <Comment comment={comment} onComment={onComment} actionid={actionid}/>
                 <small className="text-muted">Last updated 3 mins ago</small>
             </Card.Footer>
         </Card>

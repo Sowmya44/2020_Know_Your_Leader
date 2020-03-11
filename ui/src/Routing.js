@@ -19,28 +19,39 @@ import Edit from './Edit'
 
 class Routing extends Component {
     render() {
+      const authenticatedUser = window.sessionStorage.getItem('username');
+      if (!authenticatedUser) {
         return (
-          <div>
-            <Router>
-                <Switch>
-                    <Route exact path="/" component={App} />
-                    <Route path="/register" component={Register} />
-                    <Route path="/Login" component={Login} />
-                    <Route exact path="/home" component={Home} />
-                    <Route path="/about" component={About}/>    
-                    <Route path="/events" component={Events}/>                       
-                    <Route exact path="/analytics" component={Analytics}/>                        
-                    <Route path="/settings" component={Settings}/>                        
-                    <Route path="/help" component={Help}/>                       
-                    <Route path="/logout" component={Logout}/>                      
-                    <Route path="/profile" component={Profile} />
-                    <Route path="/upload" component={Upload} />
-                    <Route path="/actions" component={Actions} />
-                    <Route path="/edit" component={Edit} />
-                </Switch>
-            </Router>
-            </div>
-        );
+          <Router>
+            <Switch>
+              <Route path="*" component={Login} />
+            </Switch>
+          </Router>
+        )
+      }
+
+      return (
+        <div>
+          <Router>
+              <Switch>
+                  <Route exact path="/" component={App} />
+                  <Route path="/register" component={Register} />
+                  <Route path="/Login" component={Login} />
+                  <Route exact path="/home" component={Home} />
+                  <Route path="/about" component={About}/>    
+                  <Route path="/events" component={Events}/>                       
+                  <Route exact path="/analytics" component={Analytics}/>                        
+                  <Route path="/settings" component={Settings}/>                        
+                  <Route path="/help" component={Help}/>                       
+                  <Route path="/logout" component={Logout}/>                      
+                  <Route path="/profile" component={Profile} />
+                  <Route path="/upload" component={Upload} />
+                  <Route path="/actions" component={Actions} />
+                  <Route path="/edit" component={Edit} />
+              </Switch>
+          </Router>
+          </div>
+      );
     }
 }
 function About() {
