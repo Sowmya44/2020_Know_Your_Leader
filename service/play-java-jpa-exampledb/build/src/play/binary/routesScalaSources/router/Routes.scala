@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/macadmin/Documents/2020_Know_Your_Leader/service/play-java-jpa-exampledb/conf/routes
-// @DATE:Tue Mar 03 15:12:27 IST 2020
+// @SOURCE:/Users/macadmin/Documents/major_project/2020_Know_Your_Leader/service/play-java-jpa-exampledb/conf/routes
+// @DATE:Tue Mar 10 14:43:53 IST 2020
 
 package router
 
@@ -14,9 +14,11 @@ import _root_.controllers.Assets.Asset
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:8
-  PersonController_1: controllers.PersonController,
+  PersonController_2: controllers.PersonController,
   // @LINE:15
-  ActionController_2: controllers.ActionController,
+  ActionController_3: controllers.ActionController,
+  // @LINE:23
+  RatingController_1: controllers.RatingController,
   // @LINE:30
   Assets_0: controllers.Assets,
   val prefix: String
@@ -25,16 +27,18 @@ class Routes(
    @javax.inject.Inject()
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:8
-    PersonController_1: controllers.PersonController,
+    PersonController_2: controllers.PersonController,
     // @LINE:15
-    ActionController_2: controllers.ActionController,
+    ActionController_3: controllers.ActionController,
+    // @LINE:23
+    RatingController_1: controllers.RatingController,
     // @LINE:30
     Assets_0: controllers.Assets
-  ) = this(errorHandler, PersonController_1, ActionController_2, Assets_0, "/")
+  ) = this(errorHandler, PersonController_2, ActionController_3, RatingController_1, Assets_0, "/")
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, PersonController_1, ActionController_2, Assets_0, prefix)
+    new Routes(errorHandler, PersonController_2, ActionController_3, RatingController_1, Assets_0, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -51,9 +55,10 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """actioni""", """controllers.ActionController.addActionImage()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """ratingchange""", """controllers.ActionController.ratingChange()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """actionprofile/""" + "$" + """email<[^/]+>""", """controllers.ActionController.getUserAction(email:String)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """actions""", """controllers.ActionController.getActions()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """actionsf/""" + "$" + """filter<[^/]+>""", """controllers.ActionController.getActionsFilter(filter:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """actions/""" + "$" + """email<[^/]+>""", """controllers.ActionController.getActions(email:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """actionsf/""" + "$" + """email<[^/]+>/""" + "$" + """filter<[^/]+>""", """controllers.ActionController.getActionsFilter(email:String, filter:String)"""),
     ("""DELETE""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """delaction""", """controllers.ActionController.deleteAction()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """rating""", """controllers.RatingController.addRating()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -67,7 +72,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("person")))
   )
   private[this] lazy val controllers_PersonController_addPerson0_invoker = createInvoker(
-    PersonController_1.addPerson(),
+    PersonController_2.addPerson(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.PersonController",
@@ -85,7 +90,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("persons")))
   )
   private[this] lazy val controllers_PersonController_getPersons1_invoker = createInvoker(
-    PersonController_1.getPersons(),
+    PersonController_2.getPersons(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.PersonController",
@@ -103,7 +108,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("login")))
   )
   private[this] lazy val controllers_PersonController_login2_invoker = createInvoker(
-    PersonController_1.login(),
+    PersonController_2.login(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.PersonController",
@@ -121,7 +126,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("update")))
   )
   private[this] lazy val controllers_PersonController_updatePerson3_invoker = createInvoker(
-    PersonController_1.updatePerson(),
+    PersonController_2.updatePerson(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.PersonController",
@@ -139,7 +144,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("delperson")))
   )
   private[this] lazy val controllers_PersonController_deletePerson4_invoker = createInvoker(
-    PersonController_1.deletePerson(),
+    PersonController_2.deletePerson(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.PersonController",
@@ -157,7 +162,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("action")))
   )
   private[this] lazy val controllers_ActionController_addAction5_invoker = createInvoker(
-    ActionController_2.addAction(),
+    ActionController_3.addAction(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ActionController",
@@ -175,7 +180,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("actioni")))
   )
   private[this] lazy val controllers_ActionController_addActionImage6_invoker = createInvoker(
-    ActionController_2.addActionImage(),
+    ActionController_3.addActionImage(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ActionController",
@@ -188,12 +193,12 @@ class Routes(
     )
   )
 
-  // @LINE:18
+  // @LINE:17
   private[this] lazy val controllers_ActionController_ratingChange7_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("ratingchange")))
   )
   private[this] lazy val controllers_ActionController_ratingChange7_invoker = createInvoker(
-    ActionController_2.ratingChange(),
+    ActionController_3.ratingChange(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ActionController",
@@ -206,12 +211,12 @@ class Routes(
     )
   )
 
-  // @LINE:19
+  // @LINE:18
   private[this] lazy val controllers_ActionController_getUserAction8_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("actionprofile/"), DynamicPart("email", """[^/]+""",true)))
   )
   private[this] lazy val controllers_ActionController_getUserAction8_invoker = createInvoker(
-    ActionController_2.getUserAction(fakeValue[String]),
+    ActionController_3.getUserAction(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ActionController",
@@ -224,48 +229,48 @@ class Routes(
     )
   )
 
-  // @LINE:20
+  // @LINE:19
   private[this] lazy val controllers_ActionController_getActions9_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("actions")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("actions/"), DynamicPart("email", """[^/]+""",true)))
   )
   private[this] lazy val controllers_ActionController_getActions9_invoker = createInvoker(
-    ActionController_2.getActions(),
+    ActionController_3.getActions(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ActionController",
       "getActions",
-      Nil,
+      Seq(classOf[String]),
       "GET",
-      this.prefix + """actions""",
+      this.prefix + """actions/""" + "$" + """email<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:20
+  private[this] lazy val controllers_ActionController_getActionsFilter10_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("actionsf/"), DynamicPart("email", """[^/]+""",true), StaticPart("/"), DynamicPart("filter", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_ActionController_getActionsFilter10_invoker = createInvoker(
+    ActionController_3.getActionsFilter(fakeValue[String], fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ActionController",
+      "getActionsFilter",
+      Seq(classOf[String], classOf[String]),
+      "GET",
+      this.prefix + """actionsf/""" + "$" + """email<[^/]+>/""" + "$" + """filter<[^/]+>""",
       """""",
       Seq()
     )
   )
 
   // @LINE:21
-  private[this] lazy val controllers_ActionController_getActionsFilter10_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("actionsf/"), DynamicPart("filter", """[^/]+""",true)))
-  )
-  private[this] lazy val controllers_ActionController_getActionsFilter10_invoker = createInvoker(
-    ActionController_2.getActionsFilter(fakeValue[String]),
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.ActionController",
-      "getActionsFilter",
-      Seq(classOf[String]),
-      "GET",
-      this.prefix + """actionsf/""" + "$" + """filter<[^/]+>""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:22
   private[this] lazy val controllers_ActionController_deleteAction11_route = Route("DELETE",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("delaction")))
   )
   private[this] lazy val controllers_ActionController_deleteAction11_invoker = createInvoker(
-    ActionController_2.deleteAction(),
+    ActionController_3.deleteAction(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ActionController",
@@ -278,11 +283,29 @@ class Routes(
     )
   )
 
+  // @LINE:23
+  private[this] lazy val controllers_RatingController_addRating12_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("rating")))
+  )
+  private[this] lazy val controllers_RatingController_addRating12_invoker = createInvoker(
+    RatingController_1.addRating(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.RatingController",
+      "addRating",
+      Nil,
+      "POST",
+      this.prefix + """rating""",
+      """""",
+      Seq()
+    )
+  )
+
   // @LINE:30
-  private[this] lazy val controllers_Assets_at12_route = Route("GET",
+  private[this] lazy val controllers_Assets_at13_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at12_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_at13_invoker = createInvoker(
     Assets_0.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -302,79 +325,85 @@ class Routes(
     // @LINE:8
     case controllers_PersonController_addPerson0_route(params@_) =>
       call { 
-        controllers_PersonController_addPerson0_invoker.call(PersonController_1.addPerson())
+        controllers_PersonController_addPerson0_invoker.call(PersonController_2.addPerson())
       }
   
     // @LINE:9
     case controllers_PersonController_getPersons1_route(params@_) =>
       call { 
-        controllers_PersonController_getPersons1_invoker.call(PersonController_1.getPersons())
+        controllers_PersonController_getPersons1_invoker.call(PersonController_2.getPersons())
       }
   
     // @LINE:10
     case controllers_PersonController_login2_route(params@_) =>
       call { 
-        controllers_PersonController_login2_invoker.call(PersonController_1.login())
+        controllers_PersonController_login2_invoker.call(PersonController_2.login())
       }
   
     // @LINE:11
     case controllers_PersonController_updatePerson3_route(params@_) =>
       call { 
-        controllers_PersonController_updatePerson3_invoker.call(PersonController_1.updatePerson())
+        controllers_PersonController_updatePerson3_invoker.call(PersonController_2.updatePerson())
       }
   
     // @LINE:12
     case controllers_PersonController_deletePerson4_route(params@_) =>
       call { 
-        controllers_PersonController_deletePerson4_invoker.call(PersonController_1.deletePerson())
+        controllers_PersonController_deletePerson4_invoker.call(PersonController_2.deletePerson())
       }
   
     // @LINE:15
     case controllers_ActionController_addAction5_route(params@_) =>
       call { 
-        controllers_ActionController_addAction5_invoker.call(ActionController_2.addAction())
+        controllers_ActionController_addAction5_invoker.call(ActionController_3.addAction())
       }
   
     // @LINE:16
     case controllers_ActionController_addActionImage6_route(params@_) =>
       call { 
-        controllers_ActionController_addActionImage6_invoker.call(ActionController_2.addActionImage())
+        controllers_ActionController_addActionImage6_invoker.call(ActionController_3.addActionImage())
+      }
+  
+    // @LINE:17
+    case controllers_ActionController_ratingChange7_route(params@_) =>
+      call { 
+        controllers_ActionController_ratingChange7_invoker.call(ActionController_3.ratingChange())
       }
   
     // @LINE:18
-    case controllers_ActionController_ratingChange7_route(params@_) =>
-      call { 
-        controllers_ActionController_ratingChange7_invoker.call(ActionController_2.ratingChange())
+    case controllers_ActionController_getUserAction8_route(params@_) =>
+      call(params.fromPath[String]("email", None)) { (email) =>
+        controllers_ActionController_getUserAction8_invoker.call(ActionController_3.getUserAction(email))
       }
   
     // @LINE:19
-    case controllers_ActionController_getUserAction8_route(params@_) =>
+    case controllers_ActionController_getActions9_route(params@_) =>
       call(params.fromPath[String]("email", None)) { (email) =>
-        controllers_ActionController_getUserAction8_invoker.call(ActionController_2.getUserAction(email))
+        controllers_ActionController_getActions9_invoker.call(ActionController_3.getActions(email))
       }
   
     // @LINE:20
-    case controllers_ActionController_getActions9_route(params@_) =>
-      call { 
-        controllers_ActionController_getActions9_invoker.call(ActionController_2.getActions())
+    case controllers_ActionController_getActionsFilter10_route(params@_) =>
+      call(params.fromPath[String]("email", None), params.fromPath[String]("filter", None)) { (email, filter) =>
+        controllers_ActionController_getActionsFilter10_invoker.call(ActionController_3.getActionsFilter(email, filter))
       }
   
     // @LINE:21
-    case controllers_ActionController_getActionsFilter10_route(params@_) =>
-      call(params.fromPath[String]("filter", None)) { (filter) =>
-        controllers_ActionController_getActionsFilter10_invoker.call(ActionController_2.getActionsFilter(filter))
-      }
-  
-    // @LINE:22
     case controllers_ActionController_deleteAction11_route(params@_) =>
       call { 
-        controllers_ActionController_deleteAction11_invoker.call(ActionController_2.deleteAction())
+        controllers_ActionController_deleteAction11_invoker.call(ActionController_3.deleteAction())
+      }
+  
+    // @LINE:23
+    case controllers_RatingController_addRating12_route(params@_) =>
+      call { 
+        controllers_RatingController_addRating12_invoker.call(RatingController_1.addRating())
       }
   
     // @LINE:30
-    case controllers_Assets_at12_route(params@_) =>
+    case controllers_Assets_at13_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at12_invoker.call(Assets_0.at(path, file))
+        controllers_Assets_at13_invoker.call(Assets_0.at(path, file))
       }
   }
 }

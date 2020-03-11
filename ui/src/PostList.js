@@ -5,7 +5,7 @@ const PostList = ({ posts=[], onRate=f=>f }) =>
      <div> { 
               posts.map(post =>
                         <Post key={post.actionid} {...post}
-                        onRate={(ratingvalue) => onRate(post.actionid, ratingvalue)} />
+                        onRate={(ratingvalue,comment) => onRate(post.actionid, ratingvalue,comment)} />
                     )
     }
     </div>

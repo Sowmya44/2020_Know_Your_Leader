@@ -1,19 +1,25 @@
 products:
    app/controllers/ActionController.java -> build/playBinary/classes/controllers/ActionController.class
    app/controllers/PersonController.java -> build/playBinary/classes/controllers/PersonController.class
+   app/controllers/RatingController.java -> build/playBinary/classes/controllers/RatingController.class
    app/models/Action.java -> build/playBinary/classes/models/Action.class
    app/models/ActionRepository.java -> build/playBinary/classes/models/ActionRepository.class
    app/models/DatabaseExecutionContext.java -> build/playBinary/classes/models/DatabaseExecutionContext.class
    app/models/JPAActionRepository.java -> build/playBinary/classes/models/JPAActionRepository.class
    app/models/JPAPersonRepository.java -> build/playBinary/classes/models/JPAPersonRepository.class
+   app/models/JPARatingRepository.java -> build/playBinary/classes/models/JPARatingRepository.class
    app/models/Person.java -> build/playBinary/classes/models/Person.class
    app/models/PersonRepository.java -> build/playBinary/classes/models/PersonRepository.class
+   app/models/Rating.java -> build/playBinary/classes/models/Rating.class
+   app/models/RatingRepository.java -> build/playBinary/classes/models/RatingRepository.class
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> build/playBinary/classes/controllers/ReverseActionController.class
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> build/playBinary/classes/controllers/ReverseAssets.class
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> build/playBinary/classes/controllers/ReversePersonController.class
+   build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> build/playBinary/classes/controllers/ReverseRatingController.class
    build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> build/playBinary/classes/controllers/javascript/ReverseActionController.class
    build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> build/playBinary/classes/controllers/javascript/ReverseAssets.class
    build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> build/playBinary/classes/controllers/javascript/ReversePersonController.class
+   build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> build/playBinary/classes/controllers/javascript/ReverseRatingController.class
    build/src/play/binary/routesScalaSources/controllers/routes.java -> build/playBinary/classes/controllers/routes$javascript.class
    build/src/play/binary/routesScalaSources/controllers/routes.java -> build/playBinary/classes/controllers/routes.class
    build/src/play/binary/routesScalaSources/router/Routes.scala -> build/playBinary/classes/router/Routes$$anonfun$routes$1.class
@@ -33,6 +39,9 @@ binary dependencies:
    app/controllers/PersonController.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.11.3/844df5aba5a1a56e00905b165b12bb34116ee858/jackson-databind-2.8.11.3.jar
    app/controllers/PersonController.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play-java-forms_2.12/2.6.21/1025b34708ab59bca73ed4a8519601ecb7ee7bfc/play-java-forms_2.12-2.6.21.jar
    app/controllers/PersonController.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play_2.12/2.6.21/30f4b40d6f7f6d7e56810e1b18f96c0e4bd60b8d/play_2.12-2.6.21.jar
+   app/controllers/RatingController.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
+   app/controllers/RatingController.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play-java-forms_2.12/2.6.21/1025b34708ab59bca73ed4a8519601ecb7ee7bfc/play-java-forms_2.12-2.6.21.jar
+   app/controllers/RatingController.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play_2.12/2.6.21/30f4b40d6f7f6d7e56810e1b18f96c0e4bd60b8d/play_2.12-2.6.21.jar
    app/models/Action.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
    app/models/ActionRepository.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
    app/models/DatabaseExecutionContext.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
@@ -44,8 +53,13 @@ binary dependencies:
    app/models/JPAPersonRepository.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
    app/models/JPAPersonRepository.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play-java-jpa_2.12/2.6.21/520c62491bc9a506f48033a8f192e75b751fabb1/play-java-jpa_2.12-2.6.21.jar
    app/models/JPAPersonRepository.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/org.hibernate.javax.persistence/hibernate-jpa-2.1-api/1.0.2/cc986fd1a62ae50308a56041c7a7d52ee5f49fb6/hibernate-jpa-2.1-api-1.0.2.jar
+   app/models/JPARatingRepository.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
+   app/models/JPARatingRepository.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play-java-jpa_2.12/2.6.21/520c62491bc9a506f48033a8f192e75b751fabb1/play-java-jpa_2.12-2.6.21.jar
+   app/models/JPARatingRepository.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/org.hibernate.javax.persistence/hibernate-jpa-2.1-api/1.0.2/cc986fd1a62ae50308a56041c7a7d52ee5f49fb6/hibernate-jpa-2.1-api-1.0.2.jar
    app/models/Person.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
    app/models/PersonRepository.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
+   app/models/Rating.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
+   app/models/RatingRepository.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play_2.12/2.6.21/30f4b40d6f7f6d7e56810e1b18f96c0e4bd60b8d/play_2.12-2.6.21.jar
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/org.scala-lang/scala-library/2.12.6/6bd975dd5ca2a50b94413b708389b892ae423181/scala-library-2.12.6.jar
@@ -77,6 +91,9 @@ source dependencies:
    app/controllers/PersonController.java -> app/controllers/PersonController.java
    app/controllers/PersonController.java -> app/models/Person.java
    app/controllers/PersonController.java -> app/models/PersonRepository.java
+   app/controllers/RatingController.java -> app/controllers/RatingController.java
+   app/controllers/RatingController.java -> app/models/Rating.java
+   app/controllers/RatingController.java -> app/models/RatingRepository.java
    app/models/Action.java -> app/models/Action.java
    app/models/ActionRepository.java -> app/models/Action.java
    app/models/ActionRepository.java -> app/models/ActionRepository.java
@@ -87,15 +104,22 @@ source dependencies:
    app/models/JPAPersonRepository.java -> app/models/DatabaseExecutionContext.java
    app/models/JPAPersonRepository.java -> app/models/JPAPersonRepository.java
    app/models/JPAPersonRepository.java -> app/models/Person.java
+   app/models/JPARatingRepository.java -> app/models/DatabaseExecutionContext.java
+   app/models/JPARatingRepository.java -> app/models/JPARatingRepository.java
+   app/models/JPARatingRepository.java -> app/models/Rating.java
    app/models/Person.java -> app/models/Person.java
    app/models/PersonRepository.java -> app/models/Person.java
    app/models/PersonRepository.java -> app/models/PersonRepository.java
+   app/models/Rating.java -> app/models/Rating.java
+   app/models/RatingRepository.java -> app/models/Rating.java
+   app/models/RatingRepository.java -> app/models/RatingRepository.java
    build/src/play/binary/routesScalaSources/controllers/routes.java -> build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala
    build/src/play/binary/routesScalaSources/controllers/routes.java -> build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala
    build/src/play/binary/routesScalaSources/controllers/routes.java -> build/src/play/binary/routesScalaSources/controllers/routes.java
    build/src/play/binary/routesScalaSources/controllers/routes.java -> build/src/play/binary/routesScalaSources/router/RoutesPrefix.scala
    build/src/play/binary/routesScalaSources/router/Routes.scala -> app/controllers/ActionController.java
    build/src/play/binary/routesScalaSources/router/Routes.scala -> app/controllers/PersonController.java
+   build/src/play/binary/routesScalaSources/router/Routes.scala -> app/controllers/RatingController.java
    build/src/play/binary/routesScalaSources/router/Routes.scala -> build/src/play/binary/routesScalaSources/router/RoutesPrefix.scala
    build/src/play/binary/twirlTemplatesScalaSources/views/html/index.template.scala -> build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala
    build/src/play/binary/twirlTemplatesScalaSources/views/html/index.template.scala -> build/src/play/binary/routesScalaSources/controllers/routes.java
@@ -106,19 +130,25 @@ external dependencies:
 class names:
    app/controllers/ActionController.java -> controllers.ActionController
    app/controllers/PersonController.java -> controllers.PersonController
+   app/controllers/RatingController.java -> controllers.RatingController
    app/models/Action.java -> models.Action
    app/models/ActionRepository.java -> models.ActionRepository
    app/models/DatabaseExecutionContext.java -> models.DatabaseExecutionContext
    app/models/JPAActionRepository.java -> models.JPAActionRepository
    app/models/JPAPersonRepository.java -> models.JPAPersonRepository
+   app/models/JPARatingRepository.java -> models.JPARatingRepository
    app/models/Person.java -> models.Person
    app/models/PersonRepository.java -> models.PersonRepository
+   app/models/Rating.java -> models.Rating
+   app/models/RatingRepository.java -> models.RatingRepository
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> controllers.ReverseActionController
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> controllers.ReverseAssets
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> controllers.ReversePersonController
+   build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> controllers.ReverseRatingController
    build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> controllers.javascript.ReverseActionController
    build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> controllers.javascript.ReverseAssets
    build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> controllers.javascript.ReversePersonController
+   build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> controllers.javascript.ReverseRatingController
    build/src/play/binary/routesScalaSources/controllers/routes.java -> controllers.routes
    build/src/play/binary/routesScalaSources/controllers/routes.java -> controllers.routes$javascript
    build/src/play/binary/routesScalaSources/router/Routes.scala -> router.Routes

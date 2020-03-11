@@ -41,6 +41,7 @@ public class JPARatingRepository implements RatingRepository {
         Long actionid = rating.getActionid();
         String email = rating.getEmail();
         double ratingvalue = rating.getRatingvalue();
+        String comment = rating.getComment();
         Rating r=null;
         Query query=em.createQuery("select r from Rating r where r.actionid =: actionid and r.email =: email",Rating.class).setParameter("actionid",actionid).setParameter("email",email);
         try {
@@ -53,7 +54,7 @@ public class JPARatingRepository implements RatingRepository {
             em.persist(rating);
         }
         else{
-            int i= em.createQuery("update Rating r set r.ratingvalue =: ratingvalue where r.actionid =: actionid and r.email =: email").setParameter("ratingvalue",ratingvalue).setParameter("actionid",actionid).setParameter("email",email).executeUpdate();
+            int i= em.createQuery("update Rating r set r.ratingvalue =: ratingvalue, r.comment =: comment where r.actionid =: actionid and r.email =: email").setParameter("ratingvalue",ratingvalue).setParameter("comment",comment).setParameter("actionid",actionid).setParameter("email",email).executeUpdate();
         }
         return rating;
 

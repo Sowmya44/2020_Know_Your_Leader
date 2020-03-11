@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/macadmin/Documents/2020_Know_Your_Leader/service/play-java-jpa-exampledb/conf/routes
-// @DATE:Tue Mar 03 15:12:27 IST 2020
+// @SOURCE:/Users/macadmin/Documents/major_project/2020_Know_Your_Leader/service/play-java-jpa-exampledb/conf/routes
+// @DATE:Tue Mar 10 14:43:53 IST 2020
 
 import play.api.mvc.Call
 
@@ -10,6 +10,21 @@ import _root_.controllers.Assets.Asset
 // @LINE:8
 package controllers {
 
+  // @LINE:23
+  class ReverseRatingController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:23
+    def addRating(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "rating")
+    }
+  
+  }
+
   // @LINE:15
   class ReverseActionController(_prefix: => String) {
     def _defaultPrefix: String = {
@@ -17,16 +32,16 @@ package controllers {
     }
 
   
-    // @LINE:19
+    // @LINE:18
     def getUserAction(email:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "actionprofile/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("email", email)))
     }
   
-    // @LINE:21
-    def getActionsFilter(filter:String): Call = {
+    // @LINE:20
+    def getActionsFilter(email:String, filter:String): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "actionsf/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("filter", filter)))
+      Call("GET", _prefix + { _defaultPrefix } + "actionsf/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("email", email)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("filter", filter)))
     }
   
     // @LINE:15
@@ -41,22 +56,22 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "actioni")
     }
   
-    // @LINE:18
+    // @LINE:17
     def ratingChange(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "ratingchange")
     }
   
-    // @LINE:22
+    // @LINE:21
     def deleteAction(): Call = {
       
       Call("DELETE", _prefix + { _defaultPrefix } + "delaction")
     }
   
-    // @LINE:20
-    def getActions(): Call = {
+    // @LINE:19
+    def getActions(email:String): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "actions")
+      Call("GET", _prefix + { _defaultPrefix } + "actions/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("email", email)))
     }
   
   }

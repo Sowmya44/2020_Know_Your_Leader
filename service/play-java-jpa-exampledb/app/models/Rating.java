@@ -14,6 +14,7 @@ public class Rating {
     public Long actionid;
     public String email;
     public double ratingvalue;
+    public String comment;
 
     public Long getRatingid() {
         return ratingid;
@@ -29,6 +30,10 @@ public class Rating {
     public double getRatingvalue() {
         return ratingvalue;
     }
+    public String getComment() {
+        return comment;
+    }
+
 
     public void setRatingid(Long ratingid) {
         this.ratingid = ratingid;
@@ -43,4 +48,8 @@ public class Rating {
     public void setRatingvalue(double ratingvalue) {
         this.ratingvalue = ratingvalue;
     }
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
 }

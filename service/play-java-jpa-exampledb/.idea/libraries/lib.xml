@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/build/playBinary/lib/play-java-jpa-exampledb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/playBinary/lib/play-java-jpa-exampledb-assets.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

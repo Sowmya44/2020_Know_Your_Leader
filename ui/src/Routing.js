@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    
+    Route
 } from "react-router-dom";
 import Register from './Register'
 import Login from './Login'

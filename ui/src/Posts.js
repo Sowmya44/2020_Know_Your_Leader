@@ -34,20 +34,22 @@ class Posts extends Component {
         });
     }
 
-    ratePost(actionid, ratingvalue) {
+    ratePost(actionid, ratingvalue, comment) {
         const posts = this.state.posts.map(post =>
             (post.actionid !== actionid) ?
                 post :
                 {
                     ...post,
-                    ratingvalue
+                    ratingvalue,
+                    comment
                 } 
         )
         this.setState({ posts })
         var body = {
             actionid: actionid,
             email: window.sessionStorage.getItem("username"),
-            ratingvalue: ratingvalue
+            ratingvalue: ratingvalue,
+            comment: comment
         }
         console.log(body)
         const url = "http://localhost:9000/rating";
@@ -71,6 +73,7 @@ class Posts extends Component {
             .catch(() => console.log("can't access" + url + "response. "))
     }
 
+    
 
     handleFilterSubmit(event) {
         event.preventDefault();

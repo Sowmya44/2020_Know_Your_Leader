@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/macadmin/Documents/2020_Know_Your_Leader/service/play-java-jpa-exampledb/conf/routes
-// @DATE:Tue Mar 03 15:12:27 IST 2020
+// @SOURCE:/Users/macadmin/Documents/major_project/2020_Know_Your_Leader/service/play-java-jpa-exampledb/conf/routes
+// @DATE:Tue Mar 10 14:43:53 IST 2020
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -10,6 +10,26 @@ import _root_.controllers.Assets.Asset
 // @LINE:8
 package controllers.javascript {
 
+  // @LINE:23
+  class ReverseRatingController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:23
+    def addRating: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RatingController.addRating",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "rating"})
+        }
+      """
+    )
+  
+  }
+
   // @LINE:15
   class ReverseActionController(_prefix: => String) {
 
@@ -18,7 +38,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:19
+    // @LINE:18
     def getUserAction: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ActionController.getUserAction",
       """
@@ -28,12 +48,12 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:21
+    // @LINE:20
     def getActionsFilter: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ActionController.getActionsFilter",
       """
-        function(filter0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "actionsf/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("filter", filter0))})
+        function(email0,filter1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "actionsf/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("email", email0)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("filter", filter1))})
         }
       """
     )
@@ -58,7 +78,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:18
+    // @LINE:17
     def ratingChange: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ActionController.ratingChange",
       """
@@ -68,7 +88,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:22
+    // @LINE:21
     def deleteAction: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ActionController.deleteAction",
       """
@@ -78,12 +98,12 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:20
+    // @LINE:19
     def getActions: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ActionController.getActions",
       """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "actions"})
+        function(email0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "actions/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("email", email0))})
         }
       """
     )
