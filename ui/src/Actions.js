@@ -112,34 +112,34 @@ class Actions extends Component {
       <div>
         <Header />
         <Container>
-                <Row>
-                    <Col md={{ span: 3, offset: 1 }}>
-                       {cardlist}
-                    </Col>
-                    <Col md={{ span: 3, offset: 3 }}>
-                        <div>
-                            <br />
-                            <Form>
-                                <Row>
-                                    <Form.Group as={Col} controlId="formGridState">
-                                        <Form.Control as="select" value={this.state.filter} onChange={this.handleFilterChange}>
-                                            <option>Sort By...</option>
-                                            <option value="recent">Recent Uploads</option>
-                                            <option value="locality">Locality</option>
-                                            <option value="top-rated">Top Rated Actions</option>
-                                        </Form.Control>
-                                    </Form.Group>
-                                    <Form.Group as={Col}>
-                                        <Button type="submit" onClick={this.handleFilterSubmit}>Submit</Button>
-                                    </Form.Group>
-                                </Row>
-                            </Form>
-                            <br />
-                            Maps Component
+          <Row>
+            <Col md={{ span: 3, offset: 1 }}>
+              {cardlist}
+            </Col>
+            <Col md={{ span: 3, offset: 3 }}>
+              <div>
+                <br />
+                <Form>
+                  <Row>
+                    <Form.Group as={Col} controlId="formGridState">
+                      <Form.Control as="select" value={this.state.filter} onChange={this.handleFilterChange}>
+                        <option>Sort By...</option>
+                        <option value="recent">Recent Uploads</option>
+                        <option value="locality">Locality</option>
+                        <option value="top-rated">Top Rated Actions</option>
+                      </Form.Control>
+                    </Form.Group>
+                    <Form.Group as={Col}>
+                      <Button type="submit" onClick={this.handleFilterSubmit}>Submit</Button>
+                    </Form.Group>
+                  </Row>
+                </Form>
+                <br />
+                Maps Component
                     </div>
-                    </Col>
-                </Row>
-            </Container>
+            </Col>
+          </Row>
+        </Container>
       </div>
 
     );

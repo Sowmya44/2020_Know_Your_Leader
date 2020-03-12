@@ -10,7 +10,7 @@ import {
 import StarRating from './StarRating.js'
 import Comment from './Comment.js'
 
-const Post = ({ actionid, actionname, description, actionpath, email, actionrating, numberofusers, ratingvalue = 0, comment = "" , onRate = f => f , onComment = f => f}) =>
+const Post = ({ actionid, actionname, description, actionpath, email, actionrating, numberofusers, ratingvalue = 0, comment = "", onRate = f => f, onComment = f => f }) =>
     <div>
         <br />
         <Card style={{ width: '33rem' }}>
@@ -33,9 +33,9 @@ const Post = ({ actionid, actionname, description, actionpath, email, actionrati
                         <Col sm="4">
                             <StarRating starsSelected={ratingvalue} onRate={onRate} />
                         </Col>
-                    </Form.Group>        
+                    </Form.Group>
                 </Form>
-                <Comment comment={comment} onComment={onComment} actionid={actionid}/>
+                <Comment comment={comment} onComment={onComment} actionid={actionid} />
                 <small className="text-muted">Last updated 3 mins ago</small>
             </Card.Footer>
         </Card>

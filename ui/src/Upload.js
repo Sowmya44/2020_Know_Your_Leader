@@ -45,57 +45,57 @@ class Upload extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-    console.log(this.state)
-    var body = {
+        console.log(this.state)
+        var body = {
 
-      actionname: this.state.actionName,
-      description: this.state.description,
-      actionpath: this.state.image,
-      email : window.sessionStorage.getItem("username")
-    }
-    console.log(body);
+            actionname: this.state.actionName,
+            description: this.state.description,
+            actionpath: this.state.image,
+            email: window.sessionStorage.getItem("username")
+        }
+        console.log(body);
 
-    if (this.state.actionName === "") {
-        alert('Please enter the name of the action')
-      }
-  
-      else if (this.state.description=== "") {
-        alert('Please enter the description for the action')
-      }
+        if (this.state.actionName === "") {
+            alert('Please enter the name of the action')
+        }
 
-      else if (this.state.image === "") {
-        alert('Please enter the image')
-      }
-  
-      else {
-        const url = "http://localhost:9000/action";
-        let headers = new Headers();
-  
-        headers.append('Content-Type', 'application/json');
-        headers.append('Accept', 'application/json');
-  
-        headers.append('Access-Control-Allow-origin', url);
-        headers.append('Access-Control-Allow-Credentials', 'true');
-  
-        headers.append('POST', 'GET');
-  
-        fetch(url, {
-          headers: headers,
-          method: 'POST',
-          body: JSON.stringify(body)
-        })
-          .then(response => response.json())
-          .then(contents => {
-            console.log(contents);
-  
-          })
-          .catch(() => console.log("can't access" + url + "response. "))
-  
-          window.location.href = "/profile";
-  
-      }
-  
-  
+        else if (this.state.description === "") {
+            alert('Please enter the description for the action')
+        }
+
+        else if (this.state.image === "") {
+            alert('Please enter the image')
+        }
+
+        else {
+            const url = "http://localhost:9000/action";
+            let headers = new Headers();
+
+            headers.append('Content-Type', 'application/json');
+            headers.append('Accept', 'application/json');
+
+            headers.append('Access-Control-Allow-origin', url);
+            headers.append('Access-Control-Allow-Credentials', 'true');
+
+            headers.append('POST', 'GET');
+
+            fetch(url, {
+                headers: headers,
+                method: 'POST',
+                body: JSON.stringify(body)
+            })
+                .then(response => response.json())
+                .then(contents => {
+                    console.log(contents);
+
+                })
+                .catch(() => console.log("can't access" + url + "response. "))
+
+            window.location.href = "/profile";
+
+        }
+
+
         /*const allowedFiles = [".jpg", ".jpeg", ".png"];
         if (this.state.image == '') {
             if (this.state.actionName !== '') {
@@ -150,7 +150,7 @@ class Upload extends Component {
                 <br />
                 <div className="auth-wrapper">
                     <div className="auth-inner">
-                        <form enctype = "multipart/form-data" onSubmit={this.handleSubmit}>
+                        <form enctype="multipart/form-data" onSubmit={this.handleSubmit}>
 
                             <center><h2>Upload Your Action</h2></center>
                             <br />

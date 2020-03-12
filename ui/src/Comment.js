@@ -6,16 +6,14 @@ import {
     Col
 } from 'react-bootstrap'
 
-    function Comment(props){
-        const [comment, setComment] = useState('');
+function Comment(props) {
+    const [comment, setComment] = useState('');
 
-        const handleCommentChange = event => {
-          setComment(event.target.value);
-        }
+    const handleCommentChange = event => {
+        setComment(event.target.value);
+    }
 
-        const postComment = () => {
-          // hrer api call
-          
+    const postComment = () => {
         var body = {
             actionid: props.actionid,
             email: window.sessionStorage.getItem("username"),
@@ -40,24 +38,24 @@ import {
             .then(contents => {
                 console.log(contents);
             })
-            .catch(() => console.log("can't access" + url + "response. ")) 
-        }
-          
-        return(
-            <div>
-            <Form>
-            <Form.Group as={Row}>
-                <Col>
-                    <Form.Control placeholder="comment here..." name="comment" as="textarea" rows="2" value={comment} onChange={handleCommentChange}/>
-                </Col>
-                <Col>
-                    <Button variant="primary" onClick={ postComment }>Post</Button>
-                </Col>
-            </Form.Group>
-            </Form>
-        </div>
-        );
+            .catch(() => console.log("can't access" + url + "response. "))
     }
 
+    return (
+        <div>
+            <Form>
+                <Form.Group as={Row}>
+                    <Col>
+                        <Form.Control placeholder="comment here..." name="comment" as="textarea" rows="2" value={comment} onChange={handleCommentChange} />
+                    </Col>
+                    <Col>
+                        <Button variant="primary" onClick={postComment}>Post</Button>
+                    </Col>
+                </Form.Group>
+            </Form>
+        </div>
+    );
+}
 
-    export default Comment;
+
+export default Comment;

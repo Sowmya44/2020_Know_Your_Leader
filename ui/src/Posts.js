@@ -42,7 +42,7 @@ class Posts extends Component {
                     ...post,
                     ratingvalue,
                     comment
-                } 
+                }
         )
         this.setState({ posts })
         var body = {
@@ -73,14 +73,14 @@ class Posts extends Component {
             .catch(() => console.log("can't access" + url + "response. "))
     }
 
-    commentPost(actionid,comment) {
+    commentPost(actionid, comment) {
         const posts = this.state.posts.map(post =>
             (post.actionid !== actionid) ?
                 post :
                 {
                     ...post,
                     comment
-                } 
+                }
         )
         this.setState({ posts })
         var body = {
@@ -156,16 +156,16 @@ class Posts extends Component {
     }
 
     render() {
-        const { ratePost } = this 
-        const { commentPost } = this 
+        const { ratePost } = this
+        const { commentPost } = this
         const { posts } = this.state
         return (
             <Container>
                 <Row>
                     <Col md={{ span: 3, offset: 1 }}>
                         <PostList posts={posts}
-                                  onRate={ratePost}
-                                  onComment={commentPost}/>
+                            onRate={ratePost}
+                            onComment={commentPost} />
                     </Col>
                     <Col md={{ span: 3, offset: 3 }}>
                         <div>

@@ -28,19 +28,19 @@ class SideBar extends Component {
   }
   render() {
     return (
-      
-        
-              <Navbar bg="light">
-                        <Nav defaultActiveKey="/" className="flex-column">
-                            <Nav.Link href="/profile">Profile</Nav.Link>
-                            <Nav.Link eventKey="link-1">Link</Nav.Link>
-                            <Nav.Link eventKey="link-2">Link</Nav.Link>
-                        </Nav>
-                </Navbar>
 
-       
 
-         
+      <Navbar bg="light">
+        <Nav defaultActiveKey="/" className="flex-column">
+          <Nav.Link href="/profile">Profile</Nav.Link>
+          <Nav.Link eventKey="link-1">Link</Nav.Link>
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav>
+      </Navbar>
+
+
+
+
 
 
 

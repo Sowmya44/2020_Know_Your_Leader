@@ -38,12 +38,12 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-   
 
-    email =  window.sessionStorage.getItem("username")
-    
-    const url = 'http://localhost:9000/actionprofile/'+email
-   
+
+    email = window.sessionStorage.getItem("username")
+
+    const url = 'http://localhost:9000/actionprofile/' + email
+
     let headers = new Headers();
 
     headers.append('Content-Type', 'application/json');
@@ -54,15 +54,15 @@ class Profile extends Component {
 
     headers.append('POST', 'GET');
 
-    fetch(url,{
-        headers: headers,
-        method: 'GET'
+    fetch(url, {
+      headers: headers,
+      method: 'GET'
 
     })
-    .then(response => response.json()) 
-    .then(response => this.setState({ 'posts' : response})); 
-         
-}
+      .then(response => response.json())
+      .then(response => this.setState({ 'posts': response }));
+
+  }
 
   render() {
     const cardlist = this.state.posts.map(post => {
@@ -99,20 +99,20 @@ class Profile extends Component {
             <Col>
               <br />
               <br />
-              <h2>User Name : {window.sessionStorage.getItem("username")}<br/></h2>
-              
-              <br/>
+              <h2>User Name : {window.sessionStorage.getItem("username")}<br /></h2>
+
+              <br />
               <Button variant="danger" onClick={this.handleRating}>
-                    View Rating
+                View Rating
                     </Button>
-                    <br/>
-                    <br/>
-                <Button variant="danger" onClick={this.handleEdit}>
-                    Edit Profile
+              <br />
+              <br />
+              <Button variant="danger" onClick={this.handleEdit}>
+                Edit Profile
                     </Button>
             </Col>
           </Row>
-          <br/>
+          <br />
           <Row>
             <Col sm={8}>
               <Row>
